@@ -53,9 +53,10 @@
 }
 .image{
     padding: 8px;
-    height: 100px;
-    width: 100px;
-    display: flex;
+    height: 180px;
+    width: 180px;
+    // margin-top: 3px;
+    // display: flex;
 }
 .follow-btn{
     color: white;
@@ -66,4 +67,5 @@
     height: 30px;
     width: 80px;
     cursor: pointer;
+    margin-bottom: 4px;
 }
