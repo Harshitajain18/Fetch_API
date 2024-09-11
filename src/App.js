@@ -1,21 +1,25 @@
-// import logo from './logo.svg';
 import './App.css';
 import './style.scss';
 import {useState } from 'react';
 
 
 function App() {
-  const [userName, setUserName] = useState(null);
-  const [data,setUserData] = useState([]);
+  const [userName, setUserName] = useState('');
+  const [userData, setUserData] = useState([]);
 
   const onSubmit = () => {
-    const fetching = fetch(`https://api.github.com/users/${userName}`).then((response)=>{
+     fetch(`https://api.github.com/users/${userName}`).then((response)=>{
       response.json().then((result)=>{
-        setUserName(result);
+        setUserData(result);
+        console.log(result);
+        
       })
     }) 
-  }
+  } 
 
+  const follow = () =>{
+    window.open(`https://github.com/${userName}`,'_blank');
+  }
   console.log("userName: ", userName);
   
   return (
@@ -33,13 +37,19 @@ function App() {
            <button className='github-project__users__submitbtn' onClick={onSubmit}>Submit</button>
            <p className='github-project__users__loc'>Location :</p>
 
-          <div className='github-project__users__box'>
-            {data.map((item)=>{
-             <> 
-               <p>{item.name}</p>
-               <p>{item.followers}</p>
-             </>
-            })}
+          <div className='github-project__users__box'> 
+            <h2> {userData.name} </h2>
+            <p>{userData.location}</p>
+            <img className='image' src={ userData.avatar_url } alt="user avatar" />
+       
+            <p className='public'>Public_repos</p>
+            <p className='data'> {userData.public_repos}</p>
+            <p className='public'>Followers</p>
+            <p className='data'>{userData.followers}</p>
+            <p className='public'>Following</p>
+            <p className='data' >{userData.following}</p>
+           
+            <button className='follow-btn' onClick={follow}>Follow</button>
           </div>
 
         </div>

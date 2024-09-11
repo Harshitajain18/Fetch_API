@@ -1,7 +1,11 @@
+@import './styles/common/colors.scss';
+@import './styles/common/mixins.scss';
+
 .github-project__heading{
-    color: purple;
+    color: $secondary-color;
     display: flex;
     margin-left: 4px;   
+    @include font-body-xl();
 }
 .github-project__homebtn{
     color: black;
@@ -12,14 +16,54 @@
     margin-top: 4px;
 }
 .github-project__users__title{
-    color: purple;
+    color: #662d91;
 }
 .github-project__users__submitbtn{
     margin-left: 4px;
     border: 1px solid black;
+    height: 22px;
     width: 80px;
 }
 .github-project__users__loc{
     display: flex;
     margin-left: 505px;
+}
+.github-project__users__box{
+    border: 1px solid black;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+.public{
+    color: white;
+    border: 1px solid #007FFF;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: #007FFF;
+    margin-left: 160px;
+    margin-right: 160px;
+    height: 27px;
+    width: 100px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    display: inline;
+    
+}
+.data{
+    margin-top: 2px;
+}
+.image{
+    padding: 8px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+}
+.follow-btn{
+    color: white;
+    background-color: #007FFF;
+    border: none;
+    padding: 2px;
+    border-radius: 3px;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
 }
